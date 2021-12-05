@@ -1,11 +1,18 @@
 {
   "name": "tweet_analyzer",
-  "version": "1.0.0",
-  "description": "a simple program to gather information on a tweet",
-  "main": "index.js",
+  "version": "0.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "vite": "^2.6.4"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.0",
+    "bootstrap": "^5.1.3",
+    "dotenv": "^10.0.0",
+    "needle": "^3.0.0"
+  }
 }
