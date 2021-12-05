@@ -9,8 +9,8 @@ async function getTweetLikes(likesEndpointURL) {
   // These are the parameters for the API request
   // by default, only the Tweet ID and text are returned
   const params = {
-    'tweet.fields': 'lang,author_id', // Edit optional query parameters here
-    'user.fields': 'created_at', // Edit optional query parameters here
+    'tweet.fields': 'lang,author_id',
+    'user.fields': 'created_at',
   };
 
   // this is the HTTP header that adds bearer token authentication
@@ -37,19 +37,22 @@ export async function getTweetData(tweet) {
 
   const likedResult = await getTweetLikes(likesEndpointURL);
 
-  console.log(likedResult);
+  if (likedResult.data) {
+    likedResult.data.forEach((user) => {
+      let username = user.username;
 
-  likedResult.data.forEach((user) => {
-    let username = user.username;
-
-    names.push({
-      [username]: {
-        liked: true,
-        retweeted: false,
-        tagged: false,
-      },
+      names.push({
+        name: username,
+        stats: {
+          liked: true,
+          retweeted: false,
+          tagged: false,
+        },
+      });
     });
-  });
 
-  return names;
+    return names;
+  } else {
+    return { message: 'none' };
+  }
 }

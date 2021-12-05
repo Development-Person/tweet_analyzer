@@ -1,14 +1,38 @@
 import './style.css';
 
-const url = new URL('http://localhost:9000/tweet');
-const params = [['tweet', '1465123320613855238']];
+const submitButton = document.getElementById('submit-button');
+const tweetBox = document.getElementById('tweet');
+const usersDiv = document.getElementById('users');
 
-url.search = new URLSearchParams(params).toString();
+async function queryTwitterServer() {
+  usersDiv.innerHTML = '';
 
-const response = await fetch(url)
-  .then((response) => response.json())
-  .then((data) => console.log(data.data));
+  const serverURL = new URL('http://localhost:9000/tweet');
+  const tweetURL = tweetBox.value;
+  const tweetURLSplit = tweetURL.split('/');
+  const tweetID = tweetURLSplit[tweetURLSplit.length - 1];
+  const params = [['tweet', `${tweetID}`]];
+  serverURL.search = new URLSearchParams(params).toString();
 
-// const data = await response.string();
+  const response = await (await fetch(serverURL)).json();
 
-// console.log(data);
+  if (response.message !== 'none') {
+    for (const user of response) {
+      const userDiv = document.createElement('div');
+      userDiv.innerHTML = user.name;
+      userDiv.classList.add('col');
+      userDiv.classList.add('p-2');
+      userDiv.classList.add('m-2');
+      usersDiv.appendChild(userDiv);
+    }
+  } else {
+    const noLikes = document.createElement('div');
+    noLikes.innerHTML = 'No likes 😭';
+    usersDiv.appendChild(noLikes);
+  }
+}
+
+submitButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  queryTwitterServer();
+});

@@ -1,4 +1,5 @@
 {
+  "type":"module" ,
   "name": "tweet_analyzer",
   "version": "0.0.0",
   "scripts": {

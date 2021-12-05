@@ -17,10 +17,11 @@
       <h1 class="mb-3">Tweet Analyzer</h1>
 
       <div class="form m-3 p-3">
-        <form>
+        <form id="tweetForm">
           <div class="row g-3">
             <div class="col-lg-8">
               <input
+                id="tweet"
                 type="text"
                 class="form-control"
                 placeholder="Tweet URL"
@@ -28,10 +29,15 @@
               />
             </div>
             <div class="col-lg-4">
-              <button type="submit" class="btn btn-primary">Analyze</button>
+              <button id="submit-button" type="submit" class="btn btn-primary">
+                Analyze
+              </button>
             </div>
           </div>
         </form>
+      </div>
+      <div class="container">
+        <div id="users" class="row p-3 m-3"></div>
       </div>
     </div>
     <script type="module" src="/main.js"></script>

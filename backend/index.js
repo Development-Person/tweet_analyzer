@@ -7,8 +7,9 @@ const port = 9000;
 
 app.get('/tweet', (req, res) => {
   const tweet = req.query.tweet;
-  const data = getTweetData(tweet);
-  res.send(data);
+  getTweetData(tweet).then((data) => {
+    res.send(data);
+  });
 });
 
 app.listen(port, () => {
