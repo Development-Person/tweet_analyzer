@@ -1,4 +1,9 @@
-import { getLikes, getRetweets } from './twitter_api.js';
+import {
+  getLikes,
+  getRetweets,
+  getTweetAuthorId,
+  getFollowResult,
+} from './twitter_api.js';
 
 export async function getTweetData(tweet) {
   const id = tweet;
@@ -17,7 +22,7 @@ export async function getTweetData(tweet) {
         stats: {
           liked: true,
           retweeted: false,
-          tagged: false,
+          follows: false,
         },
       });
     });
@@ -43,14 +48,31 @@ export async function getTweetData(tweet) {
             stats: {
               liked: false,
               retweeted: true,
-              tagged: false,
+              follows: false,
             },
           });
         }
       });
     }
 
-    console.log(names);
+    const authorResult = await getTweetAuthorId(id);
+    const tweetAuthorId = authorResult.data.author_id;
+
+    const followResult = await getFollowResult(tweetAuthorId);
+
+    if (followResult.data) {
+      followResult.data.forEach((user) => {
+        let username = user.username;
+
+        names.find((user, index) => {
+          if (user.name === username) {
+            names[index].stats.follows = true;
+            return true;
+          }
+          return false;
+        });
+      });
+    }
 
     return names;
   } else {
