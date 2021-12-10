@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import needle from 'needle';
 dotenv.config({
-  path: '~/code/Development-Person/projects/tweet_analyzer/backend/.env',
+  path: '~/code/Development-Person/projects/tweet_analyzer/.env',
 });
 const token = process.env.BEARER_TOKEN;
 
