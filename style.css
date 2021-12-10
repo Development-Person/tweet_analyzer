@@ -3,7 +3,6 @@ body {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -13,4 +12,34 @@ body {
   align-items: center;
   text-align: center;
   min-height: 100vh;
+  background-color: rgba(227, 247, 248, 1);
+}
+
+h1 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+#toggles {
+  display: flex;
+  font-size: xx-large;
+}
+
+.toggle {
+  opacity: 25%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-active {
+  opacity: 100%;
+}
+
+.form {
+  width: 20vw;
+  height: auto;
+}
+
+#like {
+  color: red;
 }

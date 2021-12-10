@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Tweet Comp!</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,12 +14,13 @@
   </head>
   <body>
     <div id="app">
-      <h1 class="mb-3">Tweet Analyzer</h1>
+      <div id="modal-container"></div>
+      <h1 class="mb-3">tweeter comp!</h1>
 
       <div class="form m-3 p-3">
         <form id="tweetForm">
           <div class="row g-3">
-            <div class="col-lg-8">
+            <div class="col-lg-10">
               <input
                 id="tweet"
                 type="text"
@@ -28,13 +29,20 @@
                 aria-label="Tweet URL"
               />
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-2">
               <button id="submit-button" type="submit" class="btn btn-primary">
                 Analyze
               </button>
             </div>
           </div>
         </form>
+      </div>
+      <div id="entry-count"></div>
+      <div id="comp-button-div"></div>
+      <div id="toggles">
+        <div id="like" class="toggle p-3 m-3">❤</div>
+        <div id="retweet" class="toggle p-3 m-3">🐥</div>
+        <div id="follow" class="toggle p-3 m-3">🚶🏼‍♀️</div>
       </div>
       <div class="container">
         <div id="users" class="row p-3 m-3"></div>
