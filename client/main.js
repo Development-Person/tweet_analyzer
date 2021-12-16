@@ -99,7 +99,9 @@ function sortList(list) {
 async function queryTwitterServer() {
   usersDiv.innerHTML = '';
 
-  const serverURL = new URL('http://localhost:9000/tweet');
+  const serverURL = new URL(
+    `http://https://tweetcomp.herokuapp.com/:${process.env.PORT}/tweet`
+  );
   const tweetURL = tweetBox.value;
   const tweetURLSplit = tweetURL.split('/');
   const tweetID = tweetURLSplit[tweetURLSplit.length - 1];
