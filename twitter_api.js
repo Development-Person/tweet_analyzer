@@ -6,8 +6,6 @@ dotenv.config({
 
 const token = process.env.BEARER_TOKEN;
 
-console.log(token);
-
 async function getLikes(tweetID) {
   const likesEndpointURL = `https://api.twitter.com/2/tweets/${tweetID}/liking_users`;
 
