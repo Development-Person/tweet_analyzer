@@ -100,7 +100,7 @@ async function queryTwitterServer() {
   usersDiv.innerHTML = '';
 
   const serverURL = new URL(
-    `http://https://tweetcomp.herokuapp.com/:${process.env.PORT}/tweet`
+    `http://tweetcomp.herokuapp.com/:${process.env.PORT}/tweet`
   );
   const tweetURL = tweetBox.value;
   const tweetURLSplit = tweetURL.split('/');
