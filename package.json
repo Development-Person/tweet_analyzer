@@ -2,6 +2,9 @@
   "type": "module",
   "name": "tweet_analyzer_backend",
   "version": "1.0.0",
+   "engines": {
+    "node": "4.15.5"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
