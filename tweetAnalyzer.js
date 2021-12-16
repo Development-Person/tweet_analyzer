@@ -13,6 +13,8 @@ export async function getTweetData(tweet) {
 
   const likedResult = await getLikes(id);
 
+  console.log(likedResult);
+
   if (likedResult.data) {
     likedResult.data.forEach((user) => {
       let username = user.username;
